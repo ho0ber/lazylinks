@@ -4,21 +4,22 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "lazylinks"
+version = "0.1.0"
 authors = [
     {name = "Samuel Colburn", email = "samuel.colburn@gmail.com"},
 ]
 description = "Linktree-style links for lazy people"
 readme = "README.md"
 requires-python = ">=3.7"
-license = {text = "MIT"}
+license = {file = "LICENSE"}
 classifiers = [
     "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
     "Mako==1.2.4",
     "PyYAML==6.0",
 ]
-dynamic = ["version"]
 
 [project.scripts]
 lazylinks = "lazylinks:main"
