@@ -1,0 +1,3 @@
+#!/bin/sh
+site=$(python3 -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')
+python $site/lazylinks/lazylinks.py

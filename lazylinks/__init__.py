@@ -1,0 +1,1 @@
+from .lazylinks import main
