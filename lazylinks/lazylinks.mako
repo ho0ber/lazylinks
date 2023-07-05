@@ -62,7 +62,11 @@
     <div class="links">
       % for link in section.links:
         % if 'href' in link and 'copy' in link:
-          <a class="link" href="${link.href}" target="_blank">
+          <a class="link"
+          % if 'more' in link:
+          ${link.more}
+          % endif
+          href="${link.href}" target="_blank">
             <div class="tooltip hidden min">
               <i class="fa-solid fa-copy"></i>
             </div>
@@ -80,7 +84,11 @@
             </div>
           </a>
         % elif 'href' in link:
-        <a class="link" href="${link.href}" target="_blank">
+        <a class="link"
+        % if 'more' in link:
+        ${link.more}
+        % endif
+        href="${link.href}" target="_blank">
           <i class="${link.icon}"></i> ${link.text}
           % if 'info' in link:
           <div class="info">${link.info}</div>
