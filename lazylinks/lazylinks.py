@@ -20,11 +20,21 @@ def main():
     data = dotdict(raw_data)
 
     template = Template(filename=args.template)
+    wrap_template = Template(filename=os.path.join(dir_path, "wrap.mako"))
 
     if os.path.exists(args.static):
         shutil.copytree(args.static, "output", dirs_exist_ok=True)
     with open(os.path.join(args.output, "index.html"), "w") as outfile:
         outfile.write(template.render(**data))
-
+    for section in data.links:
+        for link in section.links:
+            if "wrap" in link:
+                with open(os.path.join(args.output, f"{link.wrap}.html"), "w") as wrap_outfile:
+                    wrap_data = {
+                        "config": data["config"],
+                        "link": link,
+                    }
+                    wrap_outfile.write(wrap_template.render(**wrap_data))
+        
 if __name__ == "__main__":
     main()

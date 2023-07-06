@@ -66,7 +66,7 @@
           % if 'more' in link:
           ${link.more}
           % endif
-          href="${link.href}" target="_blank">
+          href="${link.href if 'wrap' not in link else link.wrap+'.html'}" target="_blank">
             <div class="tooltip hidden min">
               <i class="fa-solid fa-copy"></i>
             </div>
@@ -88,7 +88,7 @@
         % if 'more' in link:
         ${link.more}
         % endif
-        href="${link.href}" target="_blank">
+        href="${link.href if 'wrap' not in link else link.wrap+'.html'}" target="_blank">
           <i class="${link.icon}"></i> ${link.text}
           % if 'info' in link:
           <div class="info">${link.info}</div>
